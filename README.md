@@ -1,6 +1,9 @@
 # rir-parser
+
     npm install rir-parser    
-    
+
+## About
+
 * **What it is:** A Node.js parser for RIR Statistics Files (IP address assignment by country, published daily by each Regional Internet Registry)
 * **Why to use it:** This module can be part of a geo-IP system that maps IP addresses to the country in which they are located.
 * **Why not to use it:** This is a low-level module that **does not include geo-IP** functionality. It’s an important building block for a geo-IP module, but does not itself provide that functionality (the author intends to publish such a module).
@@ -14,25 +17,28 @@ This module parses those lists, consolidating adjacent IPv4 ranges and returning
 
 ## Usage
 
-This module exposes one class, `RirParser`, which is a Node.js [`Transform` stream](http://nodejs.org/api/stream.html#stream_class_stream_transform).
+This module exposes one class, `RirParser`, which is a Node.js [Transform stream](http://nodejs.org/api/stream.html#stream_class_stream_transform).
 
 To use it, create an instance of `RirParser` and pipe the list to it. The `RirParser` will output a series of JavaScript objects of the form:
 
-    {range: …, kind: ['ipv4'|'ipv6'], country: [two-letter country code]}
+```js
+{range: …, kind: ['ipv4'|'ipv6'], country: [two-letter country code]}
+```
 
 Example:
 
-    var RirParser = require('rir-parser');
+```js
+var RirParser = require('rir-parser');
 
-    var parser = new RirParser();
+var parser = new RirParser();
 
-    parser.on('readable', function() {
-      var ipRange;
-      do {
-        ipRange = parser.read();
-        if (ipRange) { console.log(ipRange); }
-      } while (ipRange);
-    });
+parser.on('readable', function() {
+  var ipRange;
+  do {
+    ipRange = parser.read();
+    if (ipRange) { console.log(ipRange); }
+  } while (ipRange);
+});
 
-    someIncomingRirDataFileStream.pipe(parser);
-    
+someIncomingRirDataFileStream.pipe(parser);
+```
