@@ -1,4 +1,5 @@
 # rir-parser
+    
     npm install rir-parser    
     
 * **What it is:** A Node.js parser for RIR Statistics Files (IP address assignment by country, published daily by each Regional Internet Registry)
@@ -14,7 +15,7 @@ This module parses those lists, consolidating adjacent IPv4 ranges and returning
 
 ## Usage
 
-This module exposes one class, `RirParser`, which is a Node.js [`Transform` stream](http://nodejs.org/api/stream.html#stream_class_stream_transform).
+This module exposes one class, `RirParser`, which is a Node.js [Transform stream](http://nodejs.org/api/stream.html#stream_class_stream_transform).
 
 To use it, create an instance of `RirParser` and pipe the list to it. The `RirParser` will output a series of JavaScript objects of the form:
 
