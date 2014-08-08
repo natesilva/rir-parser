@@ -21,21 +21,24 @@ This module exposes one class, `RirParser`, which is a Node.js [Transform stream
 
 To use it, create an instance of `RirParser` and pipe the list to it. The `RirParser` will output a series of JavaScript objects of the form:
 
-    {range: …, kind: ['ipv4'|'ipv6'], country: [two-letter country code]}
+```js
+{range: …, kind: ['ipv4'|'ipv6'], country: [two-letter country code]}
+```
 
 Example:
 
-    var RirParser = require('rir-parser');
+```js
+var RirParser = require('rir-parser');
 
-    var parser = new RirParser();
+var parser = new RirParser();
 
-    parser.on('readable', function() {
-      var ipRange;
-      do {
-        ipRange = parser.read();
-        if (ipRange) { console.log(ipRange); }
-      } while (ipRange);
-    });
+parser.on('readable', function() {
+  var ipRange;
+  do {
+    ipRange = parser.read();
+    if (ipRange) { console.log(ipRange); }
+  } while (ipRange);
+});
 
-    someIncomingRirDataFileStream.pipe(parser);
-    
+someIncomingRirDataFileStream.pipe(parser);
+```
