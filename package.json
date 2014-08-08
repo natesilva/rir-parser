@@ -1,6 +1,6 @@
 {
   "author": "Nate Silva <nate@natesilva.com>",
-  "name": "update-country-ip",
+  "name": "rir-parser",
   "description": "Parser for RIR Statistics Files (IP address assignment by country)",
   "version": "0.1.0",
   "homepage": "https://github.com/natesilva/rir-parser",
