@@ -1,7 +1,9 @@
 # rir-parser
-    
+
     npm install rir-parser    
-    
+
+## About
+
 * **What it is:** A Node.js parser for RIR Statistics Files (IP address assignment by country, published daily by each Regional Internet Registry)
 * **Why to use it:** This module can be part of a geo-IP system that maps IP addresses to the country in which they are located.
 * **Why not to use it:** This is a low-level module that **does not include geo-IP** functionality. It’s an important building block for a geo-IP module, but does not itself provide that functionality (the author intends to publish such a module).
